@@ -5,10 +5,8 @@
 <html>
 <head>
 <title>User Management Application</title>
-<link rel="stylesheet" href="css/bootstrap.css"></link>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
 </head>
 <body>
@@ -34,7 +32,8 @@
 
 		<div class="container">
 		
-			<h3 class="text-center">Display Users</h3>
+			<h2 class="text-center">Details for User: </h2>
+			<h3 class="text-center">${userDetails.name} ${userDetails.surname}</h3>
 			<hr>
 			<!--<div class="container text-left">
 

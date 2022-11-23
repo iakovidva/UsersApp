@@ -5,10 +5,8 @@
 <html>
 <head>
 <title>User Management Application</title>
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
 </head>
 <body>
@@ -60,7 +58,7 @@
 							<!--<td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="delete?id=<c:out value='${user.id}' />">Delete</a></td>-->
-							<td><a href="user_details?id=<c:out value='${user.id}' />">User details</a></td>
+							<td><a href="user_details?id=<c:out value='${user.id}' /> " target="_blank">User details</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -68,6 +66,7 @@
 
 			</table>
 			<form method="post">
+		<button type="submit" class="btn btn-primary btn-lg btn-block" formaction="registerUser.jsp">Add new User</button>
 		<button type="submit" class="btn btn-primary btn-lg btn-block" formaction="homepage.jsp">Back to Home</button>
 		</form>
 		</div>

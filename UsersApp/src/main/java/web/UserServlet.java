@@ -47,6 +47,9 @@ public class UserServlet extends HttpServlet {
 			case "/user_details":
 				showUserDetails(request, response);
 				break;
+			case "/":
+				response.sendRedirect("homepage.jsp");
+				break;
 			case "/delete":
 			try {
 				deleteUser(request, response);
