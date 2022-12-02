@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
  pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +9,33 @@
 	crossorigin="anonymous">
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>My Users App</title>
 </head>
-<body>
-<h1 class="text-center">Home page</h1>
-<div class="container square-box d-flex align-items-center justify-content-center ">
-
-<a href="<%=request.getContextPath()%>/displayUsers" class="btn btn-primary btn-lg btn-block">Display Users</a>
-<a href="<%=request.getContextPath()%>/registerUser.jsp" class="btn btn-primary btn-lg btn-block">Register New User</a>
-
+<header>
+<div class="bg-secondary">
+			<p class="fs-1 text-center text-light" style="padding:20px">Home page</p>
 </div>
+	</header> 
+<body class="bg-light">
+
+
+<div class="container text-center container-fluid" style="padding:2%">
+  <div class="col">
+    <div class="row" style="padding:0 40%">
+      <a href="<%=request.getContextPath()%>/displayUsers" class="btn btn-primary btn-lg btn-block">Display Users</a>
+    </div>
+    <div class="row" style="padding:1% 40%">
+      <a href="<%=request.getContextPath()%>/registerUser.jsp" class="btn btn-primary btn-lg btn-block">Register New User</a>
+    </div>
+	    <c:if test="${action == 'UserRegistration'}">
+			<p class="text-success">User Added Successfully</p>
+		</c:if>
+		<c:if test="${action == 'UserDelete'}">
+			<p class="text-danger">User Deleted Successfully</p>
+		</c:if>
+		
+  </div>
+</div>
+
 </body>
 </html>

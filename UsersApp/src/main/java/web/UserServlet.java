@@ -92,8 +92,13 @@ public class UserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		
 		try {
-			response.sendRedirect("homepage.jsp");
+			request.setAttribute("action", "UserRegistration");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -118,6 +123,14 @@ public class UserServlet extends HttpServlet {
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		userDAO.deleteUser(id);
-		response.sendRedirect("homepage.jsp");
+		try {
+			request.setAttribute("action", "UserDelete");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
