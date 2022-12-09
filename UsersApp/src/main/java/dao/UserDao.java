@@ -11,6 +11,7 @@ import java.util.List;
 import model.User;
 
 public class UserDao {
+	
 	private String jdbcURL = "jdbc:mysql://localhost:3306/userdb";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "12345678";
@@ -23,6 +24,7 @@ public class UserDao {
 	private static final String SELECT_USER_BY_ID = "SELECT a.*, b.workAddress, b.homeAddress FROM users AS a INNER JOIN addresses AS b ON a.id = b.id WHERE a.id=?";
 	private static final String DELETE_USER_SQL = "delete from users where id = ?;";
 	private static final String DELETE_ADDRESSES_SQL = "delete from addresses where id = ?;";
+	
 	protected Connection getConnection() {
 		Connection connection = null;
 		try {
@@ -37,7 +39,6 @@ public class UserDao {
 	}
 	
 	public void insertUser(User user) throws SQLException {
-		System.out.println("PROSPATHEIA GIA INSERT!");
 		try (Connection connection = getConnection();
 			 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_DETAILS_SQL);
 			 PreparedStatement preparedStatementAddress = connection.prepareStatement(INSERT_USER_ADDRESSES_SQL);
@@ -88,9 +89,7 @@ public class UserDao {
 				PreparedStatement preparedStatement = con.prepareStatement(SELECT_USER_BY_ID);){
 				preparedStatement.setInt(1, id);
 				System.out.println(preparedStatement);
-				// Step 3: Execute the query or update query
 				ResultSet rs = preparedStatement.executeQuery();
-				// Step 4: Process the ResultSet object.
 				while (rs.next()) {
 					String name = rs.getString("name");
 					String surname = rs.getString("surname");
@@ -101,7 +100,6 @@ public class UserDao {
 					user = new User(id, name, surname, gender, birthdate, workAddress, homeAddress);
 				}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

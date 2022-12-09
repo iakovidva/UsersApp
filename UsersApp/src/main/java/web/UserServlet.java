@@ -17,6 +17,7 @@ import dao.UserDao;
 
 @WebServlet("/")
 public class UserServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
     private UserDao userDAO;
     
@@ -35,7 +36,6 @@ public class UserServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
-		System.out.println("THE ACTTIOOOON: " + action);
 		
 		switch(action) {
 			case "/displayUsers":
@@ -54,10 +54,8 @@ public class UserServlet extends HttpServlet {
 			try {
 				deleteUser(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 				break;
@@ -112,10 +110,8 @@ public class UserServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

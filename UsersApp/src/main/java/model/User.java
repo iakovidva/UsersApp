@@ -13,6 +13,7 @@ public class User {
 	public User() {
 
 	}
+	
 	public User(String name, String surname, String gender, String birthdate, String workAddress, String homeAddress) {
 		super();
 		this.name = name;
@@ -22,8 +23,7 @@ public class User {
 		this.workAddress = workAddress;
 		this.homeAddress = homeAddress;
 	}
-	public User(int id, String name, String surname, String gender, String birthdate, String workAddress,
-			String homeAddress) {
+	public User(int id, String name, String surname, String gender, String birthdate, String workAddress, String homeAddress) {
 		super();
 		this.id = id;
 		this.name = name;
